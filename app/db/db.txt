@@ -1,1 +1,0 @@
-Esta carpeta corresponde a la configuracion de la base de datos: Mongo
