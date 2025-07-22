@@ -1,0 +1,1 @@
+rest information for each crud-model

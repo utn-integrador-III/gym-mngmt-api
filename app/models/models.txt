@@ -1,1 +1,1 @@
-Esta carpeta corresponde a los modelos/tablas
+folder for models/database tables

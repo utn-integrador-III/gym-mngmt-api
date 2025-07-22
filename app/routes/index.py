@@ -1,7 +1,10 @@
 from fastapi import APIRouter
-from app.routes.userroute import router as user_router
+from app.routes import userroute, exerciseroute
 
-router = APIRouter()
+api_router = APIRouter()
 
-# Aquí incluyes tus routers individuales
-router.include_router(user_router, prefix="/users", tags=["Users"])
+# Usuarios bajo /users
+api_router.include_router(userroute.router, prefix="/users", tags=["Users"])
+
+# Ejercicios bajo /exercises
+api_router.include_router(exerciseroute.router, prefix="/exercises", tags=["Exercises"])
