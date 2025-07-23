@@ -46,9 +46,9 @@ PUT	/exercises/{id}	(update excercise by id)
 
 DELETE /exercises/{id} (delete excercise by id)
 
-/routines
+/dailyroutines
 
-POST /routines/ (creates new routine)
+POST /dailyroutines/ (creates new routine)
 {
   "id_coach": "id_coach(users)",
   "id_exercise": [
@@ -58,10 +58,31 @@ POST /routines/ (creates new routine)
   "name": "Rutina Matutina Superior updated"
 }
 
-GET /routines/ (get all routines)
+GET /dailyroutines/ (get all routines)
 
-GET /routines/{id} (get routine by id)
+GET /dailyroutines/{id} (get routine by id)
 
-PUT /routines/{id} (update routine by id)
+PUT /dailyroutines/{id} (update routine by id)
 
-DELETE /routines/{id} (delete routine by id)
+DELETE /dailyroutines/{id} (delete routine by id)
+
+/assignedroutines/
+
+POST /assignedroutines/ (creates new assigned routine)
+
+{
+  "id_coach": "687e06685d26f6a1fe30c0a5",
+  "id_client": "687f715c6811be42dffd67b8",
+  "id_dailyroutineexercise": "687f68f68746625144eeffca",
+  "notes": "Iniciar rutina de piernas",
+  "done": false,
+  "dayofweek": "martes"
+}
+
+GET /assignedroutines/ (get all assigned routine)
+
+GET /assignedroutines/{id} (get assigned routine by id)
+
+PUT /assignedroutines/{id} (update assigned routine by id)
+
+DELETE /assignedroutines/{id} (delete assigned routine by id)
