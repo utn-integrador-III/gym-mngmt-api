@@ -1,14 +1,15 @@
+# testers/test_daily_routine_exercise.py
 from app.models.dailyroutineexercises import DailyRoutineExercisesModel
 from bson import ObjectId
 
-# Crear IDs como strings válidos
-coach_id = str(ObjectId())
-exercise_id = str(ObjectId())
+# Crear IDs válidos como ObjectId
+coach_id = ObjectId()
+exercise_ids = [ObjectId(), ObjectId()]  # lista de ejercicios
 
 # Crear la rutina diaria de ejercicios
 routine = DailyRoutineExercisesModel(
     id_coach=coach_id,
-    id_exercise=exercise_id,
+    id_exercise=exercise_ids,
     name="Morning Upper Body Routine"
 )
 

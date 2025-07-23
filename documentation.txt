@@ -45,3 +45,23 @@ PUT	/exercises/{id}	(update excercise by id)
 }
 
 DELETE /exercises/{id} (delete excercise by id)
+
+/routines
+
+POST /routines/ (creates new routine)
+{
+  "id_coach": "id_coach(users)",
+  "id_exercise": [
+    "id_exercise(exercise)",
+    "id_exercise(exercise)"
+  ],
+  "name": "Rutina Matutina Superior updated"
+}
+
+GET /routines/ (get all routines)
+
+GET /routines/{id} (get routine by id)
+
+PUT /routines/{id} (update routine by id)
+
+DELETE /routines/{id} (delete routine by id)

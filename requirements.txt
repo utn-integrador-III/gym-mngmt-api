@@ -1,1 +1,5 @@
+--privada
+uvicorn app.main:app --reload
+
+--local
 uvicorn app.main:app --reload --host 0.0.0.0

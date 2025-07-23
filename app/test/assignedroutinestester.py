@@ -1,16 +1,17 @@
-from app.models.assigned_routines import AssignedRoutinesModel
+# testers/test_assigned_routines.py
+from app.models.assignedroutines import AssignedRoutinesModel
 from bson import ObjectId
 
-# Crear IDs de prueba como strings
-coach_id = str(ObjectId())
-client_id = str(ObjectId())
-routine_id = str(ObjectId())
+# Crear IDs de prueba como ObjectId (no string)
+coach_id = ObjectId()
+client_id = ObjectId()
+routine_id = ObjectId()
 
 # Crear instancia del modelo
 assigned = AssignedRoutinesModel(
     id_coach=coach_id,
     id_client=client_id,
-    id_routineexercise=routine_id,
+    id_dailyroutineexercise=routine_id,  # <- nombre correcto del campo
     notes="Focus on form and breathing",
     done=False,
     dayofweek="lunes"
