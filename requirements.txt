@@ -1,1 +1,29 @@
+--privada
+uvicorn app.main:app --reload
+
+--local
 uvicorn app.main:app --reload --host 0.0.0.0
+
+fastapi==0.110.0
+uvicorn[standard]==0.29.0
+
+# Pydantic para validación de datos
+pydantic==2.7.1
+pydantic-settings==2.2.1
+
+# Motor de base de datos MongoDB
+motor==3.4.0
+pymongo==4.7.1
+bson==0.5.10
+
+# Generación de IDs tipo ObjectId
+dnspython==2.6.1
+
+# Para pruebas locales o scripts manuales
+python-dotenv==1.0.1
+
+# pip install
+pip install fastapi uvicorn[standard] pydantic pydantic-settings motor pymongo bson dnspython python-dotenv
+pip install pytest
+
+# pip install -r requirements.txt

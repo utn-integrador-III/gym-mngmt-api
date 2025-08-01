@@ -1,0 +1,43 @@
+### Obtener todas las rutinas
+GET http://127.0.0.1:8000/routines
+Accept: application/json
+
+###
+
+### Obtener una rutina por ID
+GET http://127.0.0.1:8000/routines/{{routine_id}}
+Accept: application/json
+
+###
+
+### Crear una nueva rutina
+POST http://127.0.0.1:8000/routines
+Content-Type: application/json
+
+{
+  "id_coach": "60f7f9e0c8c8a2f1d8d0b9f5",
+  "id_exercise": [
+    "60f7f9e0c8c8a2f1d8d0b9f6",
+    "60f7f9e0c8c8a2f1d8d0b9f7"
+  ],
+  "name": "Morning Upper Body Routine"
+}
+
+###
+
+### Actualizar una rutina por ID
+PUT http://127.0.0.1:8000/routines/{{routine_id}}
+Content-Type: application/json
+
+{
+  "id_coach": "60f7f9e0c8c8a2f1d8d0b9f5",
+  "id_exercise": [
+    "60f7f9e0c8c8a2f1d8d0b9f6"
+  ],
+  "name": "Updated Routine Name"
+}
+
+###
+
+### Eliminar una rutina por ID
+DELETE http://127.0.0.1:8000/routines/{{routine_id}}

@@ -1,10 +1,16 @@
 from fastapi import APIRouter
-from app.routes import userroute, exerciseroute
+from app.routes import userroute, exerciseroute, dailyroutineexercisesroute, assignedroutinesroute
 
-api_router = APIRouter()
+router = APIRouter()
 
-# Usuarios bajo /users
-api_router.include_router(userroute.router, prefix="/users", tags=["Users"])
+# Include the user routes
+router.include_router(userroute.router)
 
-# Ejercicios bajo /exercises
-api_router.include_router(exerciseroute.router, prefix="/exercises", tags=["Exercises"])
+# Include the exercise routes
+router.include_router(exerciseroute.router)
+
+# Include the daily routine exercises routes, another way to structure the prefix and tags
+router.include_router(dailyroutineexercisesroute.router, prefix="/dailyroutines", tags=["Daily Routines"])
+
+# Include the assigned routines routes
+router.include_router(assignedroutinesroute.router)
