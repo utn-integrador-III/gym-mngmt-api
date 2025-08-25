@@ -2,29 +2,9 @@ routes:
 each router has their single router in their crud controller, each router is organized in routes/index.py
 
 endpoints:
-/users
+/user
 
-POST /users/ (creates new user)
-"example": {
-                "username": "user123",
-                "gender": "male",
-                "phone": "123456789",
-                "photo": "http://example.com/photo.jpg"
-            }
-
-GET	/users/	(get all users)
-
-GET	/users/{id}	(get user by id)
-
-PUT	/users/{id}	(update user by id)
-"example": {
-                "username": "user123",
-                "gender": "male",
-                "phone": "123456789",
-                "photo": "http://exampleupdated.com/photo.jpg"
-            }
-
-DELETE /users/{id} (detele user by id)
+ver: guia.txt
 
 /exercises
 
