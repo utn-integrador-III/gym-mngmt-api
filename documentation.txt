@@ -1,0 +1,68 @@
+routes:
+each router has their single router in their crud controller, each router is organized in routes/index.py
+
+endpoints:
+/user
+
+ver: guia.txt
+
+/exercises
+
+POST /exercises/ (creates new excercise)
+    {
+  "name": "Push Ups",
+  "description": "Upper body exercise using body weight"
+}
+
+GET	/exercises/	(get all exercises)
+
+GET	/exercises/{id}	(get excercise by id)
+
+PUT	/exercises/{id}	(update excercise by id)
+    {
+  "name": "Pull Ups",
+  "description": "Upper body exercise focusing on back muscles"
+}
+
+DELETE /exercises/{id} (delete excercise by id)
+
+/dailyroutines
+
+POST /dailyroutines/ (creates new routine)
+{
+  "id_coach": "id_coach(users)",
+  "id_exercise": [
+    "id_exercise(exercise)",
+    "id_exercise(exercise)"
+  ],
+  "name": "Rutina Matutina Superior updated"
+}
+
+GET /dailyroutines/ (get all routines)
+
+GET /dailyroutines/{id} (get routine by id)
+
+PUT /dailyroutines/{id} (update routine by id)
+
+DELETE /dailyroutines/{id} (delete routine by id)
+
+/assignedroutines/
+
+POST /assignedroutines/ (creates new assigned routine)
+
+{
+  "id_coach": "687e06685d26f6a1fe30c0a5",
+  "id_client": "687f715c6811be42dffd67b8",
+  "id_dailyroutineexercise": "687f68f68746625144eeffca",
+  "notes": "Iniciar rutina de piernas",
+  "done": false,
+  "dayofweek": "martes"
+}
+
+GET /assignedroutines/ (get all assigned routine)
+
+GET /assignedroutines/{id} (get assigned routine by id)
+
+PUT /assignedroutines/{id} (update assigned routine by id)
+
+DELETE /assignedroutines/{id} (delete assigned routine by id)

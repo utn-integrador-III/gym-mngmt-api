@@ -1,0 +1,38 @@
+### Obtener todos los usuarios
+GET http://127.0.0.1:8000/users
+Accept: application/json
+
+###
+
+### Crear un nuevo usuario
+POST http://127.0.0.1:8000/users
+Content-Type: application/json
+
+{
+  "username": "user123",
+  "gender": "male",
+  "phone": "88888888",
+  "photo": "http://example.com/photo.jpg"
+}
+
+###
+
+### Obtener un usuario por ID
+GET http://127.0.0.1:8000/users/{{user_id}}
+Accept: application/json
+
+###
+
+### Actualizar un usuario por ID
+PUT http://127.0.0.1:8000/users/{{user_id}}
+Content-Type: application/json
+
+{
+  "username": "updateduser",
+  "phone": "99999999"
+}
+
+###
+
+### Eliminar un usuario por ID
+DELETE http://127.0.0.1:8000/users/{{user_id}}
