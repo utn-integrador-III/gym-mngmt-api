@@ -13,9 +13,12 @@ async def create(
     username: str = Form(...),
     gender: str = Form(...),
     phone: str = Form(None),
+    email: str = Form(...),
+    password: str = Form(...),
+    role: str = Form(...),
     photo: UploadFile = File(None)
 ):
-    user = UserModel(username=username, gender=gender, phone=phone)
+    user = UserModel(username=username, gender=gender, phone=phone, email=email, password=password, role=role)
     photo_bytes = await photo.read() if photo else None
     photo_filename = photo.filename if photo else None
     return await usercontroller.create_user(user, photo_bytes, photo_filename)
