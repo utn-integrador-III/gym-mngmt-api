@@ -20,18 +20,35 @@ async def get_routine(routine_id: str):
         raise HTTPException(status_code=404, detail="Rutina no encontrada")
     return routine
 
-async def update_routine(routine_id: str, updated_routine: DailyRoutineExercisesModel):
-    updated = await collection.find_one_and_update(
-        {"_id": ObjectId(routine_id)},
-        {"$set": updated_routine.dict(by_alias=True, exclude={"id"})},
-        return_document=True
-    )
-    if not updated:
+async def update_routine(routine_id: str, payload: DailyRoutineExercisesModel):
+    q = {"_id": ObjectId(routine_id)} if ObjectId.is_valid(routine_id) else {"_id": routine_id}
+    # prepara $set con los campos que aceptas actualizar:
+    update_doc = {
+        "$set": {
+            "name": payload.name,
+            "id_coach": ObjectId(payload.id_coach) if ObjectId.is_valid(str(payload.id_coach)) else payload.id_coach,
+            "id_exercise": [
+                ObjectId(x) if ObjectId.is_valid(str(x)) else x for x in payload.id_exercise
+            ]
+        }
+    }
+    res = await collection.update_one(q, update_doc)
+    if res.matched_count == 0:
         raise HTTPException(status_code=404, detail="Rutina no encontrada")
-    return updated
+    return {"message": "Rutina actualizada"}
 
+# Aporte de Su
 async def delete_routine(routine_id: str):
-    result = await collection.delete_one({"_id": ObjectId(routine_id)})
-    if result.deleted_count == 0:
-        raise HTTPException(status_code=404, detail="Rutina no encontrada")
-    return {"message": "Rutina eliminada"}
+    # 1) intenta por ObjectId
+    if ObjectId.is_valid(routine_id):
+        res = await collection.delete_one({"_id": ObjectId(routine_id)})
+        if res.deleted_count > 0:
+            return {"message": "Rutina eliminada"}
+
+    # 2) Fallback:  _id string 
+    res = await collection.delete_one({"_id": routine_id})
+    if res.deleted_count > 0:
+        return {"message": "Rutina eliminada"}
+
+    # Nada coincidió
+    raise HTTPException(status_code=404, detail="Rutina no encontrada")
