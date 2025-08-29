@@ -1,7 +1,10 @@
 from fastapi import APIRouter
-from app.routes import userroute, exerciseroute, dailyroutineexercisesroute, assignedroutinesroute
+from app.routes import userroute, exerciseroute, dailyroutineexercisesroute, assignedroutinesroute, authroute #su
 
 router = APIRouter()
+
+# Include the auth routes
+router.include_router(authroute.router)
 
 # Include the user routes
 router.include_router(userroute.router)

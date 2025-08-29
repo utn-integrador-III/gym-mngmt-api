@@ -1,3 +1,9 @@
+# Ignorar node_modules del backend
+/backend/node_modules/
+
+# Ignorar node_modules del frontend
+/frontend/node_modules/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
