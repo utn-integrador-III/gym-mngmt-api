@@ -1,0 +1,34 @@
+### Crear una rutina asignada
+POST http://localhost:8000/assigned-routines/
+Content-Type: application/json
+
+{
+  "id_coach": "64cfa2b9e1f6e1f1f1f1f1f1",
+  "id_client": "64cfa2b9e1f6e1f1f1f1f1f2",
+  "id_routineexercise": "64cfa2b9e1f6e1f1f1f1f1f3",
+  "notes": "Primera asignación para el cliente",
+  "done": false,
+  "dayofweek": "lunes"
+}
+
+### Obtener todas las rutinas asignadas
+GET http://localhost:8000/assigned-routines/
+
+### Obtener una rutina asignada por ID
+GET http://localhost:8000/assigned-routines/64cfa2b9e1f6e1f1f1f1f1f4
+
+### Actualizar una rutina asignada
+PUT http://localhost:8000/assigned-routines/64cfa2b9e1f6e1f1f1f1f1f4
+Content-Type: application/json
+
+{
+  "id_coach": "64cfa2b9e1f6e1f1f1f1f1f1",
+  "id_client": "64cfa2b9e1f6e1f1f1f1f1f2",
+  "id_routineexercise": "64cfa2b9e1f6e1f1f1f1f1f3",
+  "notes": "Actualización de la rutina asignada",
+  "done": true,
+  "dayofweek": "viernes"
+}
+
+### Eliminar una rutina asignada
+DELETE http://localhost:8000/assigned-routines/64cfa2b9e1f6e1f1f1f1f1f4

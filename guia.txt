@@ -1,0 +1,93 @@
+guia creacion de usuario con la opcion de foto en gridfs
+
+base: http://ip:8000
+
+Endpoints
+1️⃣ Crear Usuario (POST /users/)
+
+Descripción: Crea un usuario y opcionalmente sube su foto de perfil a GridFS.
+
+Tipo: multipart/form-data
+
+Campos:
+
+Campo	    Tipo	Requerido	Descripción
+username	string	Sí	        Nombre de usuario
+gender	    string	Sí	        "male" o "female"
+phone	    string	No	        Teléfono opcional
+photo	    file	No	        Imagen de perfil
+
+Ejemplo usando Postman:
+
+Método: POST
+
+Body → form-data:
+
+    username: keneth123
+    gender: male
+    phone: 8888-8888
+    photo: [archivo.jpg]
+
+Respuesta:
+
+    {
+  "_id": "64e2f1d2f3a2c0a1b2c3d4e5",
+  "username": "keneth123",
+  "gender": "male",
+  "phone": "8888-8888",
+  "photo": "64e2f1d2f3a2c0a1b2c3d4f"
+}
+
+2️⃣ Listar Usuarios (GET /users/)
+
+Descripción: Devuelve todos los usuarios.
+
+Respuesta: Array de objetos UserModel.
+
+3️⃣ Obtener Usuario (GET /users/{user_id})
+
+Descripción: Devuelve un usuario por su ID.
+
+Parámetros:
+
+user_id: ID del usuario (string)
+
+4️⃣ Actualizar Usuario (PUT /users/{user_id})
+
+Descripción: Actualiza un usuario y/o reemplaza su foto.
+
+Tipo: multipart/form-data
+
+Campos opcionales:
+
+username, gender, phone, photo
+
+Notas: Solo se actualizan los campos enviados.
+
+5️⃣ Eliminar Usuario (DELETE /users/{user_id})
+
+Descripción: Elimina un usuario y su foto en GridFS si existe.
+
+6️⃣ Descargar Foto del Usuario (GET /users/{user_id}/photo)
+
+Descripción: Devuelve la foto del usuario como archivo.
+
+Respuesta: image/jpeg (puede abrirse directamente en navegador o Postman).
+
+Recomendaciones
+
+Para subir imágenes grandes, asegúrate que tu cliente soporta multipart/form-data.
+
+Las fotos se almacenan en GridFS, y solo se guarda el ID en el campo photo.
+
+Para pruebas locales con Postman:
+
+POST → Crear usuario con foto
+
+PUT → Actualizar usuario o foto
+
+GET → Listar/Obtener usuario
+
+GET /photo → Descargar imagen
+
+DELETE → Eliminar usuario y foto

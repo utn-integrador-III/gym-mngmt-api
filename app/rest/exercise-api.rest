@@ -1,0 +1,35 @@
+### Create Exercise
+POST http://127.0.0.1:8000/exercises/
+Content-Type: application/json
+
+{
+  "name": "Push Ups",
+  "description": "Upper body exercise using body weight"
+}
+
+###
+
+### Get All Exercises
+GET http://127.0.0.1:8000/exercises/
+
+###
+
+### Get One Exercise (replace EXERCISE_ID with the actual id)
+GET http://127.0.0.1:8000/exercises/EXERCISE_ID
+
+###
+
+### Update Exercise (replace EXERCISE_ID with the actual id)
+PUT http://127.0.0.1:8000/exercises/EXERCISE_ID
+Content-Type: application/json
+
+{
+  "name": "Modified Push Ups",
+  "description": "Modified description for push ups"
+}
+
+###
+
+### Delete Exercise (replace EXERCISE_ID with the actual id)
+DELETE http://127.0.0.1:8000/exercises/EXERCISE_ID
+
